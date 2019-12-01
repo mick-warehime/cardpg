@@ -1,19 +1,28 @@
-2019-12-01 13:43:55,476 0.001 [INFO]  Start Application
-2019-12-01 13:43:55,717 0.001 [DEBUG]  registered listener 1 <views.view_manager.ViewManager object at 0x7f3076501f10>
-2019-12-01 13:43:55,717 0.001 [DEBUG]  registered listener 2 <controllers.game.Game object at 0x7f3079f55b50>
-2019-12-01 13:43:55,717 0.001 [DEBUG]  registered listener 3 <controllers.keyboard.Keyboard object at 0x7f3076501ed0>
-2019-12-01 13:43:55,717 0.001 [DEBUG]  Loaded keybindings
-2019-12-01 13:43:55,718 0.001 [DEBUG]  
+2019-12-01 14:02:54,628 0.001 [INFO]  Start Application
+2019-12-01 14:02:54,873 0.001 [DEBUG]  registered listener 1 <views.view_manager.ViewManager object at 0x7f975bd16410>
+2019-12-01 14:02:54,873 0.001 [DEBUG]  registered listener 2 <controllers.game.Game object at 0x7f975bd16610>
+2019-12-01 14:02:54,873 0.001 [DEBUG]  registered listener 3 <controllers.keyboard.Keyboard object at 0x7f975835c210>
+2019-12-01 14:02:54,873 0.001 [DEBUG]  Loaded keybindings
+2019-12-01 14:02:54,873 0.001 [DEBUG]  
 KEY BINDINGS
 --------------------
 x: SETTINGS
 i: INVENTORY
 d: DEBUG
 --------------------
-2019-12-01 13:43:55,718 0.001 [DEBUG]  registered listener 4 <controllers.scene_machine.SceneMachine object at 0x7f307650d1d0>
-2019-12-01 13:43:55,718 0.001 [DEBUG]  registered listener 5 DecisionScene(6TH Corp...)
-2019-12-01 13:43:55,718 0.001 [DEBUG]  EVENT: NewSceneEvent(DecisionScene(6TH Corp...))
-2019-12-01 13:43:55,718 0.001 [DEBUG]  Updating view to new scene: DecisionScene(6TH Corp...)
-2019-12-01 13:43:55,823 0.001 [DEBUG]  registered listener 6 <controllers.decision_scene_controller.DecisionSceneController object at 0x7f307650d950>
-2019-12-01 13:43:55,824 0.001 [DEBUG]  IMAGE: Loading: src/data/images/background_loading.png
-2019-12-01 13:44:00,623 0.001 [DEBUG]  EVENT: QUIT
+2019-12-01 14:02:54,874 0.001 [DEBUG]  registered listener 4 <controllers.scene_machine.SceneMachine object at 0x7f975835c4d0>
+2019-12-01 14:02:54,874 0.001 [DEBUG]  registered listener 5 DecisionScene(6TH Corp...)
+2019-12-01 14:02:54,874 0.001 [DEBUG]  EVENT: NewSceneEvent(DecisionScene(6TH Corp...))
+2019-12-01 14:02:54,874 0.001 [DEBUG]  Updating view to new scene: DecisionScene(6TH Corp...)
+2019-12-01 14:02:54,981 0.001 [DEBUG]  registered listener 6 <controllers.decision_scene_controller.DecisionSceneController object at 0x7f975835cc50>
+2019-12-01 14:02:54,982 0.001 [DEBUG]  IMAGE: Loading: src/data/images/background_loading.png
+2019-12-01 14:02:55,987 0.001 [DEBUG]  EVENT: KEYPRESS, key=s, mouse=(-1, -1), pressed=False
+2019-12-01 14:02:55,987 0.001 [DEBUG]  EVENT: DecisionEvent(choice='s', scene=<models.scenes.decision_scene.DecisionScene object at 0x7f975835c690>)
+2019-12-01 14:02:55,987 0.001 [DEBUG]  Scene DecisionScene(6TH Corp...) resolved.
+2019-12-01 14:02:55,987 0.001 [DEBUG]  registered listener 7 DecisionScene(Choose scene arc....)
+2019-12-01 14:02:55,987 0.001 [DEBUG]  EVENT: NewSceneEvent(DecisionScene(Choose scene arc....))
+2019-12-01 14:02:55,987 0.001 [DEBUG]  Updating view to new scene: DecisionScene(Choose scene arc....)
+2019-12-01 14:02:55,987 0.001 [DEBUG]  EVENT: Deactivating a DecisionSceneController
+2019-12-01 14:02:55,987 0.001 [DEBUG]  registered listener 8 <controllers.decision_scene_controller.DecisionSceneController object at 0x7f974ec0db10>
+2019-12-01 14:02:55,988 0.001 [DEBUG]  IMAGE: Loading: src/data/images/background_city.png
+2019-12-01 14:02:56,660 0.001 [DEBUG]  EVENT: QUIT
