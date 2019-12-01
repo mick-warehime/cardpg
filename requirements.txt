@@ -1,0 +1,11 @@
+autopep8>=1.4.4
+coverage==4.5.4
+flake8==3.5.0
+frozendict>=1.2
+isort>=4.3.21
+mypy==0.750
+parameterized>=0.7.0
+pycodestyle==2.4.0
+pygame>=1.9.6
+pytest>=4.0
+pytest_cov>=2.8.1

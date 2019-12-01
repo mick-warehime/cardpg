@@ -1,0 +1,19 @@
+2019-12-01 13:43:55,476 0.001 [INFO]  Start Application
+2019-12-01 13:43:55,717 0.001 [DEBUG]  registered listener 1 <views.view_manager.ViewManager object at 0x7f3076501f10>
+2019-12-01 13:43:55,717 0.001 [DEBUG]  registered listener 2 <controllers.game.Game object at 0x7f3079f55b50>
+2019-12-01 13:43:55,717 0.001 [DEBUG]  registered listener 3 <controllers.keyboard.Keyboard object at 0x7f3076501ed0>
+2019-12-01 13:43:55,717 0.001 [DEBUG]  Loaded keybindings
+2019-12-01 13:43:55,718 0.001 [DEBUG]  
+KEY BINDINGS
+--------------------
+x: SETTINGS
+i: INVENTORY
+d: DEBUG
+--------------------
+2019-12-01 13:43:55,718 0.001 [DEBUG]  registered listener 4 <controllers.scene_machine.SceneMachine object at 0x7f307650d1d0>
+2019-12-01 13:43:55,718 0.001 [DEBUG]  registered listener 5 DecisionScene(6TH Corp...)
+2019-12-01 13:43:55,718 0.001 [DEBUG]  EVENT: NewSceneEvent(DecisionScene(6TH Corp...))
+2019-12-01 13:43:55,718 0.001 [DEBUG]  Updating view to new scene: DecisionScene(6TH Corp...)
+2019-12-01 13:43:55,823 0.001 [DEBUG]  registered listener 6 <controllers.decision_scene_controller.DecisionSceneController object at 0x7f307650d950>
+2019-12-01 13:43:55,824 0.001 [DEBUG]  IMAGE: Loading: src/data/images/background_loading.png
+2019-12-01 13:44:00,623 0.001 [DEBUG]  EVENT: QUIT
