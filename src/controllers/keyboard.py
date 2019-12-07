@@ -1,12 +1,12 @@
 import pygame
 
-from events.tick_event import TickEvent
-from events.quit_event import QuitEvent
+from events.event import Event
+from events.event_listener import EventListener
+from events.event_manager import EventManager
 from events.key_press_event import KeyPressEvent
 from events.mouse_click_event import MouseClickEvent
-from events.event_listener import EventListener
-from events.event import Event
-from events.event_manager import EventManager
+from events.quit_event import QuitEvent
+from events.tick_event import TickEvent
 
 
 class Keyboard(EventListener):

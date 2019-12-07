@@ -1,5 +1,3 @@
-from enum import Enum
-
 FRAMES_PER_SECOND = 30
 LOG_LEVEL = 'DEBUG'
 LOGGING_FILE = 'src/debug/game.log'

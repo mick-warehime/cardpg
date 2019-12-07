@@ -1,8 +1,8 @@
 from typing import List
 
+from artists.artist import Artist
 from data.colors import GREEN
 from views.pygame_screen import get_screen
-from artists.artist import Artist
 
 
 class View(object):

@@ -1,5 +1,6 @@
 import logging
 from weakref import WeakSet
+
 from events.event import Event
 from events.event_type import EventType
 

@@ -1,4 +1,5 @@
 from typing import Tuple
+
 from events.event import Event
 from events.event_type import EventType
 

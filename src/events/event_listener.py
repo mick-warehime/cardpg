@@ -1,6 +1,7 @@
 import abc
+
+from events.event import Event
 from events.event_manager import EventManager
-from event import Event
 
 
 class EventListener(metaclass=abc.ABCMeta):

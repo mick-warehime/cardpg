@@ -4,14 +4,14 @@ from typing import Optional
 
 import pygame
 
-from controllers.keyboard import Keyboard
 from controller_factory import build_controller
+from controllers.keyboard import Keyboard
 from data import constants
 from events.event import Event
+from events.event_listener import EventListener
+from events.event_manager import EventManager
 from events.event_type import EventType
 from events.tick_event import TickEvent
-from events.event_manager import EventManager
-from events.event_listener import EventListener
 
 
 def initialize_pygame(no_ui: bool = False) -> None:

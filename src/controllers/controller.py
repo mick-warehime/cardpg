@@ -1,6 +1,7 @@
 import abc
-from events.event_listener import EventListener
+
 from events.event import Event
+from events.event_listener import EventListener
 from models.model import Model
 from views.view import View
 

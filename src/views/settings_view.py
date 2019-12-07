@@ -1,5 +1,5 @@
-from views.view import View
 from artists.settings_artist import SettingsArtist
+from views.view import View
 
 
 class SettingsView(View):

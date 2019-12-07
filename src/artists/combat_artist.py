@@ -1,8 +1,8 @@
-from data.colors import WHITE
-from artists.drawing_utils import rescale_horizontal, rescale_vertical
-from views.pygame_screen import Screen
-from models.model import Model
 from artists.artist import Artist
+from artists.drawing_utils import rescale_horizontal, rescale_vertical
+from data.colors import WHITE
+from models.model import Model
+from views.pygame_screen import Screen
 
 
 class CombatArtist(Artist):

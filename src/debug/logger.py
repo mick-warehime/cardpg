@@ -1,8 +1,7 @@
 import logging
 import os
-from data.constants import LOG_LEVEL
-from data.constants import LOGGING_FILE
-from data.constants import VERSION
+
+from data.constants import LOG_LEVEL, LOGGING_FILE, VERSION
 
 
 def clear_log(log_file: str) -> None:

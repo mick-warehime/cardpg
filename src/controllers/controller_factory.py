@@ -1,10 +1,10 @@
+from controllers.combat_controller import CombatController
 from controllers.controller import Controller
 from controllers.settings_controller import SettingsController
-from controllers.combat_controller import CombatController
-from models.settings_model import SettingsModel
 from models.combat_model import CombatModel
-from views.settings_view import SettingsView
+from models.settings_model import SettingsModel
 from views.combat_view import CombatView
+from views.settings_view import SettingsView
 
 
 def build_controller(next_screen: str) -> Controller:

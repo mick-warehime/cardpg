@@ -1,8 +1,7 @@
 from controllers.controller import Controller
-from events.event import Event
-from events.event import EventType
-from events.event_manager import EventManager
 from events.change_screen_event import ChangeScreenEvent
+from events.event import Event, EventType
+from events.event_manager import EventManager
 
 
 class CombatController(Controller):

@@ -1,5 +1,5 @@
-from views.view import View
 from artists.combat_artist import CombatArtist
+from views.view import View
 
 
 class CombatView(View):
