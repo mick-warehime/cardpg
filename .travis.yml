@@ -8,4 +8,4 @@ script:
 #  - scripts/mypy.sh
   - scripts/flake8.sh
   - scripts/import_order.sh
-  - scripts/pytest.sh
+ # - scripts/pytest.sh
