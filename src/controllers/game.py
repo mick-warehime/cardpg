@@ -1,20 +1,21 @@
 import os
 import sys
-from typing import Callable, Optional
+from typing import Optional
 
 import pygame
 
 from controllers.keyboard import Keyboard
-from controllers.scene_machine import SceneMachine
+from controller_factory import build_controller
 from data import constants
-from events.events_base import (BasicEvents, EventListener, EventManager,
-                                EventType, NewSceneEvent)
-from models.scenes.scene_examples import loading_scene
-from models.scenes.scenes_base import Scene
+from events.event import Event
+from events.event_type import EventType
+from events.tick_event import TickEvent
+from events.event_manager import EventManager
+from events.event_listener import EventListener
 
 
-def initialize_pygame(no_UI: bool = False) -> None:
-    if no_UI:
+def initialize_pygame(no_ui: bool = False) -> None:
+    if no_ui:
         os.environ['SDL_VIDEODRIVER'] = 'dummy'
         os.environ['SDL_AUDIODRIVER'] = 'dummy'
 
@@ -30,23 +31,20 @@ class Game(EventListener):
     def __init__(self) -> None:
         super(Game, self).__init__()
         self.clock: pygame.Clock = pygame.time.Clock()
-
         self.keyboard = Keyboard()
+        self.controller = build_controller('settings')
 
-        self.scene_machine = SceneMachine()
-
-    def notify(self, event: EventType) -> None:
-        if event == BasicEvents.QUIT:
+    def notify(self, event: Event) -> None:
+        if event.event_type == EventType.QUIT:
             pygame.quit()
             sys.exit()
-        elif event == BasicEvents.TICK:
+        elif event.event_type == EventType.TICK:
             # limits the redraw speed
             self.clock.tick(constants.FRAMES_PER_SECOND)
+        elif event.event_type == EventType.CHANGE_SCREEN:
+            self.controller = build_controller(event.next_screen)
 
-    def run(self, scene_loader: Callable[[], Scene] = None) -> None:
-
-        scene = loading_scene() if scene_loader is None else scene_loader()
-        EventManager.post(NewSceneEvent(scene))
-
+    def run(self) -> None:
+        EventManager.post(TickEvent())
         while True:
-            EventManager.post(BasicEvents.TICK)
+            EventManager.post(TickEvent())

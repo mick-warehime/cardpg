@@ -13,18 +13,6 @@ from views.pygame_images import load_image
 class Screen(object):
 
     @abstractmethod
-    def render_texts(
-            self,
-            texts: List[str],
-            font_size: int,
-            x: int,
-            y: int,
-            color: ColorType,
-            spacing: int) -> None:
-        """Render a sequence of texts to the screen with vertical spacing."""
-        pass
-
-    @abstractmethod
     def render_text(
             self, text: str, font_size: int, x: int, y: int,
             color: ColorType, w: int = None, h: int = None) -> Rect:
