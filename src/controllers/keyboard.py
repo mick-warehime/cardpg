@@ -1,66 +1,50 @@
-from typing import List, Tuple
-
 import pygame
 
-from data.keybindings import Keybindings
-from events.events_base import (BasicEvents, EventListener, EventManager,
-                                EventType, InputEvent)
+from events.event import Event
+from events.event_listener import EventListener
+from events.event_manager import EventManager
+from events.key_press_event import KeyPressEvent
+from events.mouse_click_event import MouseClickEvent
+from events.quit_event import QuitEvent
+from events.tick_event import TickEvent
 
 
 class Keyboard(EventListener):
     def __init__(self) -> None:
         super(Keyboard, self).__init__()
-        self.bindings = Keybindings()
 
-    def notify(self, event: EventType) -> None:
-        if event == BasicEvents.TICK:
+    def notify(self, event: Event) -> None:
+        if isinstance(event, TickEvent):
             self.handle_inputs()
 
     def handle_inputs(self) -> None:
         # Called for each game tick. We check our keyboard presses here.
-        for pg_event in self.get_pygame_events():
+        for pg_event in pygame.event.get():
             # handle window manager closing our window
             if self.is_quit_event(pg_event):
-                EventManager.post(BasicEvents.QUIT)
+                EventManager.post(QuitEvent())
             # handle key down events
             elif pg_event.type == pygame.KEYDOWN:
-                self.handle_keypress(pg_event.unicode)
-            elif pg_event.type == pygame.KEYUP:
-                pass
+                self.handle_keypress(pg_event.unicode, pressed=True)
+            # elif pg_event.type == pygame.KEYUP:
+            #     self.handle_keypress(pg_event.unicode, pressed=False)
             elif pg_event.type == pygame.MOUSEBUTTONDOWN:
-                self.handle_mouse_click()
+                self.handle_mouse_click(pressed=True)
+            elif pg_event.type == pygame.MOUSEBUTTONUP:
+                self.handle_mouse_click(pressed=False)
 
-    def handle_keypress(self, key_name: str) -> None:
-        if self.get_binding(key_name) != BasicEvents.NONE:
-            self.post_bound_event(key=key_name)
-        else:
-            input_event = InputEvent(event_type=BasicEvents.KEYPRESS,
-                                     key=key_name)
-            EventManager.post(input_event)
+    def handle_keypress(self, key_name: str, pressed: bool) -> None:
+        input_event = KeyPressEvent(key=key_name, pressed=pressed)
+        EventManager.post(input_event)
 
-    def handle_mouse_click(self) -> None:
-        mouse_event = self.mouse_event()
+    def handle_mouse_click(self, pressed: bool) -> None:
+        mouse_event = MouseClickEvent(position=pygame.mouse.get_pos(), pressed=pressed)
         EventManager.post(mouse_event)
 
-    def mouse_event(self) -> InputEvent:
-        return InputEvent(event_type=BasicEvents.MOUSE_CLICK, key='',
-                          mouse=self.mouse_pos())
-
-    def mouse_pos(self) -> Tuple[int, int]:
-        return pygame.mouse.get_pos()
-
-    def get_binding(self, key: str) -> EventType:
+    def get_binding(self, key: str) -> Event:
         return self.bindings.event_for_key(key)
-
-    def post_bound_event(self, key: str) -> None:
-        binding = self.get_binding(key)
-        EventManager.post(BasicEvents(binding))
-
-    def get_pygame_events(self) -> List[pygame.event.EventType]:
-        return pygame.event.get()
 
     def is_quit_event(self, pg_event: pygame.event.EventType) -> bool:
         if pg_event.type == pygame.QUIT:
             return True
-
         return pg_event.type == pygame.KEYDOWN and pg_event.key == pygame.K_ESCAPE

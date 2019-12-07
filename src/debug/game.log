@@ -1,19 +1,14 @@
-2019-12-01 13:43:55,476 0.001 [INFO]  Start Application
-2019-12-01 13:43:55,717 0.001 [DEBUG]  registered listener 1 <views.view_manager.ViewManager object at 0x7f3076501f10>
-2019-12-01 13:43:55,717 0.001 [DEBUG]  registered listener 2 <controllers.game.Game object at 0x7f3079f55b50>
-2019-12-01 13:43:55,717 0.001 [DEBUG]  registered listener 3 <controllers.keyboard.Keyboard object at 0x7f3076501ed0>
-2019-12-01 13:43:55,717 0.001 [DEBUG]  Loaded keybindings
-2019-12-01 13:43:55,718 0.001 [DEBUG]  
-KEY BINDINGS
---------------------
-x: SETTINGS
-i: INVENTORY
-d: DEBUG
---------------------
-2019-12-01 13:43:55,718 0.001 [DEBUG]  registered listener 4 <controllers.scene_machine.SceneMachine object at 0x7f307650d1d0>
-2019-12-01 13:43:55,718 0.001 [DEBUG]  registered listener 5 DecisionScene(6TH Corp...)
-2019-12-01 13:43:55,718 0.001 [DEBUG]  EVENT: NewSceneEvent(DecisionScene(6TH Corp...))
-2019-12-01 13:43:55,718 0.001 [DEBUG]  Updating view to new scene: DecisionScene(6TH Corp...)
-2019-12-01 13:43:55,823 0.001 [DEBUG]  registered listener 6 <controllers.decision_scene_controller.DecisionSceneController object at 0x7f307650d950>
-2019-12-01 13:43:55,824 0.001 [DEBUG]  IMAGE: Loading: src/data/images/background_loading.png
-2019-12-01 13:44:00,623 0.001 [DEBUG]  EVENT: QUIT
+2019-12-07 12:05:03,743 0.001 [INFO]  Start Application
+2019-12-07 12:05:03,984 0.001 [DEBUG]  registered listener 1 <controllers.game.Game object at 0x7fcbc046ffd0>
+2019-12-07 12:05:03,984 0.001 [DEBUG]  registered listener 2 <controllers.keyboard.Keyboard object at 0x7fcbc3b33950>
+2019-12-07 12:05:03,984 0.001 [DEBUG]  registered listener 3 <models.settings_model.SettingsModel object at 0x7fcbc3ab9050>
+2019-12-07 12:05:04,081 0.001 [DEBUG]  registered listener 4 <controllers.settings_controller.SettingsController object at 0x7fcbc3ab9690>
+2019-12-07 12:05:05,277 0.001 [DEBUG]  EVENT: key=y pressed=True
+2019-12-07 12:05:05,277 0.001 [DEBUG]  EVENT: <events.change_screen_event.ChangeScreenEvent object at 0x7fcbb68b9fd0>
+2019-12-07 12:05:05,281 0.001 [DEBUG]  registered listener 5 <models.combat_model.CombatModel object at 0x7fcbb68b99d0>
+2019-12-07 12:05:05,281 0.001 [DEBUG]  registered listener 6 <controllers.combat_controller.CombatController object at 0x7fcbb68cb090>
+2019-12-07 12:05:05,570 0.001 [DEBUG]  EVENT: key=x pressed=True
+2019-12-07 12:05:05,570 0.001 [DEBUG]  EVENT: <events.change_screen_event.ChangeScreenEvent object at 0x7fcbb68cb150>
+2019-12-07 12:05:05,574 0.001 [DEBUG]  registered listener 5 <models.settings_model.SettingsModel object at 0x7fcbb68cb210>
+2019-12-07 12:05:05,574 0.001 [DEBUG]  registered listener 6 <controllers.settings_controller.SettingsController object at 0x7fcbb68cb310>
+2019-12-07 12:05:05,868 0.001 [DEBUG]  EVENT: <events.quit_event.QuitEvent object at 0x7fcbb68cb350>
