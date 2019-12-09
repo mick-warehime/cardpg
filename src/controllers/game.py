@@ -29,10 +29,10 @@ class Game(EventListener):
     keyboard: Optional[Keyboard] = None
 
     def __init__(self) -> None:
-        super(Game, self).__init__()
+        super().__init__()
         self.clock: pygame.Clock = pygame.time.Clock()
         self.keyboard = Keyboard()
-        self.controller = build_controller('settings')
+        self.controller = build_controller('combat')
 
     def notify(self, event: Event) -> None:
         if event.event_type == EventType.QUIT:

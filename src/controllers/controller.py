@@ -9,7 +9,7 @@ from views.view import View
 class Controller(EventListener):
 
     def __init__(self, model: Model, view: View) -> None:
-        super(Controller, self).__init__()
+        super().__init__()
         self._model = model
         self._view = view
 
