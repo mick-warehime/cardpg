@@ -1,4 +1,5 @@
 from typing import List
+from typing import Tuple
 
 from actions.action import Action
 from actors.actor import Actor
@@ -6,7 +7,10 @@ from actors.actor import Actor
 
 class Card(object):
 
-    def __init__(self, actions: List[Action]) -> None:
+    def __init__(self, name: str, sprite: Tuple[int, int], text: str, actions: List[Action]) -> None:
+        self.name = name
+        self.sprite = sprite
+        self.text = text
         self.actions = actions
 
     def play(self, actor: Actor, target: Actor) -> None:

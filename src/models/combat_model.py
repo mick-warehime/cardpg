@@ -10,6 +10,7 @@ class CombatModel(Model):
     def __init__(self) -> None:
         self.character = Warrior.new()
         self.character.add_item(Mace())
+        self.character.add_item(Club())
 
         self.skeleton = Skeleton.new()
         self.skeleton.add_item(Club())

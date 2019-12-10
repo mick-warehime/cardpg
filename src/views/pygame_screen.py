@@ -8,6 +8,8 @@ from pygame.rect import Rect
 from data import constants
 from data.colors import ColorType
 from views.pygame_images import load_image
+from pygame.surface import Surface
+from spritesheet import load_sprite_at
 
 
 class Screen(object):
@@ -90,6 +92,10 @@ class Screen(object):
     def render_line(self, start: Tuple[int, int], end: Tuple[int, int],
                     color: ColorType, thickness: int = 2) -> None:
         """Draw a line on the screen."""
+
+    @abstractmethod
+    def render_sprite(self, sprite: Tuple[int, int], x: int, y: int, scale: Tuple[int, int]) -> None:
+        """"Render from the spriteshite"""
 
 
 class _PygameScreen(Screen):
@@ -233,6 +239,22 @@ class _PygameScreen(Screen):
 
     def clear(self) -> None:
         self._screen.fill((0, 0, 0))
+
+    def render_sprite(self, sprite: Tuple[int, int], x: int, y: int, scale: Tuple[int, int] = None) -> None:
+
+        sprite = load_sprite(sprite)
+        if scale:
+            sprite = pygame.transform.scale(sprite, scale)
+        self._screen.blit(sprite, (x, y))
+
+
+SPRITE_CACHE = {}
+
+
+def load_sprite(sprite: Tuple[int, int]) -> Surface:
+    if sprite not in SPRITE_CACHE:
+        SPRITE_CACHE[sprite] = load_sprite_at(sprite)
+    return SPRITE_CACHE[sprite]
 
 
 _screen = None

@@ -1,6 +1,7 @@
 import abc
 
 from events.event import Event
+from events.event_type import EventType
 from events.event_listener import EventListener
 from models.model import Model
 from views.view import View
@@ -12,10 +13,15 @@ class Controller(EventListener):
         super().__init__()
         self._model = model
         self._view = view
+        self.initial_draw = False
 
     def notify(self, event: Event) -> None:
-        self.update(event)
-        self._view.update(self._model)
+        if (event.event_type != EventType.TICK) or not self.initial_draw:
+            self.update(event)
+            self._view.update(self._model)
+
+        if not self.initial_draw:
+            self.initial_draw = True
 
     @abc.abstractmethod
     def update(self, event: Event) -> None:
