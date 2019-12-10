@@ -11,7 +11,7 @@ from events.tick_event import TickEvent
 
 class Keyboard(EventListener):
     def __init__(self) -> None:
-        super(Keyboard, self).__init__()
+        super().__init__()
 
     def notify(self, event: Event) -> None:
         if isinstance(event, TickEvent):
