@@ -19,7 +19,10 @@ class RandomDamage(Action):
     def act(self, actor: Actor, target: Actor) -> None:
         damage = self.get_random_damage()
         logging.info(
-            '{} damage ({}d{}+{}) = {}'.format(self.name, self.dice_count, self.dice_faces, self.modifier, damage))
+            '{} damage ({}d{}+{}) = {}'.format(self.name,
+                                               self.dice_count,
+                                               self.dice_faces,
+                                               self.modifier, damage))
         target.hp = target.hp - damage
 
     def get_random_damage(self) -> int:

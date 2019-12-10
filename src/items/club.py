@@ -16,4 +16,7 @@ class Club(Item):
         super().__init__(name='club', item_type=ItemType.WEAPON, rarity=ItemRarity.COMMON)
 
     def common_cards(self) -> List[Card]:
-        return [BluntWeapon(self.name, dice_count=Club.N_DICE, dice_faces=Club.N_SIDES, modifier=Club.MOD)]
+        return [BluntWeapon(self.name,
+                            dice_count=Club.N_DICE,
+                            dice_faces=Club.N_SIDES,
+                            modifier=Club.MOD)]
