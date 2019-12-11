@@ -1,5 +1,6 @@
 import logging
 
+from cards.deck_manager import DeckManager
 from controllers.controller import Controller
 from events.change_screen_event import ChangeScreenEvent
 from events.event import Event, EventType

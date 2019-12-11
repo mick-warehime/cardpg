@@ -4,6 +4,8 @@ from weakref import WeakSet
 from events.event import Event
 from events.event_type import EventType
 
+IGNORED_EVENTS = set([EventType.TICK, EventType.MOUSE_MOVE])
+
 
 class EventManager(object):
     listeners = WeakSet()
@@ -16,7 +18,7 @@ class EventManager(object):
 
     @classmethod
     def post(cls, event: Event) -> None:
-        if event.event_type != EventType.TICK:
+        if event.event_type not in IGNORED_EVENTS:
             logging.debug('EVENT: {}'.format(str(event)))
 
         for l in cls.listeners.copy():
