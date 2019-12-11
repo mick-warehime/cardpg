@@ -7,3 +7,4 @@ class EventType(Enum):
     MOUSE_CLICK = 3
     KEY_PRESS = 4
     CHANGE_SCREEN = 5
+    PLAY_CARD = 6

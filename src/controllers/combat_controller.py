@@ -7,6 +7,7 @@ from events.event_manager import EventManager
 
 
 class CombatController(Controller):
+
     def update(self, event: Event) -> None:
         if event.event_type == EventType.KEY_PRESS:
             if event.key == 'x':
@@ -14,6 +15,9 @@ class CombatController(Controller):
 
             if event.key == 'a':
                 self.attack()
+        if event.event_type == EventType.PLAY_CARD:
+            # TODO - remove card from hand
+            logging.info('played card')
 
     def attack(self) -> None:
         char = self._model.character

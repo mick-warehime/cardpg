@@ -3,6 +3,8 @@ from typing import Tuple
 
 from actions.action import Action
 from actors.actor import Actor
+from events.event_manager import EventManager
+from events.play_card_event import PlayCardEvent
 
 
 class Card(object):
@@ -14,6 +16,7 @@ class Card(object):
         self.actions = actions
 
     def play(self, actor: Actor, target: Actor) -> None:
+        EventManager.post(PlayCardEvent(self))
         for action in self.actions:
             action.act(actor, target)
 
