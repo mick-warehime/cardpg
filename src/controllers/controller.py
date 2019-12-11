@@ -6,6 +6,8 @@ from events.event_listener import EventListener
 from models.model import Model
 from views.view import View
 
+IGNORED_EVENTS = set([EventType.TICK, EventType.MOUSE_MOVE])
+
 
 class Controller(EventListener):
 
@@ -16,7 +18,7 @@ class Controller(EventListener):
         self.initial_draw = False
 
     def notify(self, event: Event) -> None:
-        if (event.event_type != EventType.TICK) or not self.initial_draw:
+        if event.event_type not in IGNORED_EVENTS or not self.initial_draw:
             self.update(event)
             self._view.update(self._model)
 

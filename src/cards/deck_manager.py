@@ -27,9 +27,8 @@ class DeckManager(EventListener):
             for i in range(self.hand_size):
                 rect = self.card_rects[i]
                 if rect.collidepoint(event.x, event.y):
-
                     self.selected = i
-                    # logging.info('selected {}: {}'.format(i, self.selected))
+                    break
                 else:
                     self.selected = -1
 
