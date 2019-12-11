@@ -12,7 +12,7 @@ from models.combat_model import CombatModel
 from views.pygame_screen import Screen
 from pygame.rect import Rect
 
-draws = 0
+
 class CardArtist(Artist):
     MAX_HAND_SIZE = 7
     TITLE_FONT = 30
@@ -24,10 +24,6 @@ class CardArtist(Artist):
 
     @staticmethod
     def render_cards(screen: Screen, cards: List[Card], model: CombatModel) -> None:
-        global draws
-        draws += 1
-        print(draws)
-        # ONLY REDRAW IF DIRTY
         n_cards = len(cards)
         assert n_cards < CardArtist.MAX_HAND_SIZE, \
             'handsize {} greater than max {}'.format(n_cards, CardArtist.MAX_HAND_SIZE)
