@@ -1,5 +1,6 @@
-import pygame
 from typing import Tuple
+
+import pygame
 from pygame import Rect
 
 SHEET = None

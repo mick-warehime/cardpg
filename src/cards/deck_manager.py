@@ -1,12 +1,13 @@
-import logging
+from random import shuffle
 from typing import List
+
+from pygame.rect import Rect
+
 from cards.card import Card
 from cards.card_position import card_rect
 from events.event import Event
-from events.event_type import EventType
 from events.event_listener import EventListener
-from pygame.rect import Rect
-from random import shuffle
+from events.event_type import EventType
 
 NONE_SELECTED = -1
 

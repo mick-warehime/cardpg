@@ -4,12 +4,12 @@ from typing import Dict, List, Tuple
 
 import pygame
 from pygame.rect import Rect
+from pygame.surface import Surface
 
 from data import constants
 from data.colors import ColorType
-from views.pygame_images import load_image
-from pygame.surface import Surface
 from spritesheet import load_sprite_at
+from views.pygame_images import load_image
 
 
 class Screen(object):
@@ -94,7 +94,10 @@ class Screen(object):
         """Draw a line on the screen."""
 
     @abstractmethod
-    def render_sprite(self, sprite: Tuple[int, int], x: int, y: int, scale: Tuple[int, int]) -> None:
+    def render_sprite(self, sprite: Tuple[int, int],
+                      x: int,
+                      y: int,
+                      scale: Tuple[int, int]) -> None:
         """"Render from the spriteshite"""
 
 
@@ -130,6 +133,7 @@ class _PygameScreen(Screen):
         pygame.display.flip()
 
     def render_texts(
+
             self,
             texts: List[str],
             font_size: int,
@@ -240,7 +244,10 @@ class _PygameScreen(Screen):
     def clear(self) -> None:
         self._screen.fill((0, 0, 0))
 
-    def render_sprite(self, sprite: Tuple[int, int], x: int, y: int, scale: Tuple[int, int] = None) -> None:
+    def render_sprite(self, sprite: Tuple[int, int],
+                      x: int,
+                      y: int,
+                      scale: Tuple[int, int] = None) -> None:
 
         sprite = load_sprite(sprite)
         if scale:

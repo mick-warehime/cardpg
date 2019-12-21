@@ -16,7 +16,9 @@ class Mace(Item):
     SPRITE = (9, 5)
 
     def __init__(self) -> None:
-        super().__init__(item_name=ItemNames.MACE, item_type=ItemType.WEAPON, rarity=ItemRarity.COMMON)
+        super().__init__(item_name=ItemNames.MACE,
+                         item_type=ItemType.WEAPON,
+                         rarity=ItemRarity.COMMON)
 
     def common_cards(self) -> List[Card]:
         return [self.card() for _ in range(Mace.N_CARDS)]

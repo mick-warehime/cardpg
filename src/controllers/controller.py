@@ -1,9 +1,9 @@
 import abc
 
 from events.event import Event
-from events.event_type import EventType
 from events.event_listener import EventListener
 from events.event_priority import EventPriority
+from events.event_type import EventType
 from models.model import Model
 from views.view import View
 

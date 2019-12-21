@@ -1,9 +1,7 @@
-from data.constants import SCREEN_SIZE
-from data.constants import CARD_FROM_BOTTOM
-from data.constants import CARD_HEIGHT
-from data.constants import CARD_WIDTH
-from data.constants import CARD_SPACE
 from pygame.rect import Rect
+
+from data.constants import (CARD_FROM_BOTTOM, CARD_HEIGHT, CARD_SPACE,
+                            CARD_WIDTH, SCREEN_SIZE)
 
 
 def card_position(index: int, hand_size: int):

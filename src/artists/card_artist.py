@@ -1,16 +1,14 @@
 from typing import List
-import logging
+
+from pygame.rect import Rect
+
 from artists.artist import Artist
 from cards.card import Card
 from cards.card_position import card_position
-from data.colors import RED
-from data.colors import WHITE
-from data.colors import DARK_GRAY
-from data.constants import CARD_HEIGHT
-from data.constants import CARD_WIDTH
+from data.colors import DARK_GRAY, RED, WHITE
+from data.constants import CARD_HEIGHT, CARD_WIDTH
 from models.combat_model import CombatModel
 from views.pygame_screen import Screen
-from pygame.rect import Rect
 
 
 class CardArtist(Artist):

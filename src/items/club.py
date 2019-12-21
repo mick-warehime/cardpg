@@ -15,7 +15,9 @@ class Club(Item):
     SPRITE = (8, 5)
 
     def __init__(self) -> None:
-        super().__init__(item_name=ItemNames.CLUB, item_type=ItemType.WEAPON, rarity=ItemRarity.COMMON)
+        super().__init__(item_name=ItemNames.CLUB,
+                         item_type=ItemType.WEAPON,
+                         rarity=ItemRarity.COMMON)
 
     def common_cards(self) -> List[Card]:
         return [BluntWeapon(self.name,
