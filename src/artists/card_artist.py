@@ -20,7 +20,7 @@ class CardArtist(Artist):
     SPRITE_SIZE = (140, 140)
 
     def render(self, screen: Screen, model: CombatModel) -> None:
-        self.render_cards(screen, model.character.cards(), model)
+        self.render_cards(screen, model.deck_manager.hand, model)
 
     @staticmethod
     def render_cards(screen: Screen, cards: List[Card], model: CombatModel) -> None:

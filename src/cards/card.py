@@ -20,5 +20,8 @@ class Card(object):
         for action in self.actions:
             action.act(actor, target)
 
+    def __str__(self) -> str:
+        return self.name
+
     # add randomization of base card action potential (mace 8 + 2d2), (kite shield 4+1d1)
     # add skill impact

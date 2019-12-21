@@ -1,6 +1,7 @@
 from actors.characters.warrior import Warrior
 from actors.monsters.skeleton import Skeleton
 from cards.deck_manager import DeckManager
+from cards.card import Card
 from items.club import Club
 from items.mace import Mace
 from models.model import Model
@@ -17,3 +18,6 @@ class CombatModel(Model):
 
         self.skeleton = Skeleton.new()
         self.skeleton.add_item(Club())
+
+    def selected_card(self) -> Card:
+        return self.deck_manager.selected_card()

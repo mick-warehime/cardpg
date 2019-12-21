@@ -19,7 +19,10 @@ class EventManager(object):
     @classmethod
     def post(cls, event: Event) -> None:
         if event.event_type not in IGNORED_EVENTS:
+            print([type(c) for c in cls.listeners])
             logging.debug('EVENT: {}'.format(str(event)))
 
-        for l in cls.listeners.copy():
+        # TODO - SORTS LISTENERS EVERY EVENT!!! Need to find a better way to destory listeners
+        # and then we can keep a sorted list here instead of a weakset
+        for l in sorted(cls.listeners, key=lambda x: x.priority).copy():
             l.notify(event)

@@ -6,7 +6,7 @@ from events.event_listener import EventListener
 from models.model import Model
 from views.view import View
 
-IGNORED_EVENTS = set([EventType.TICK, EventType.MOUSE_MOVE])
+IGNORED_EVENTS = set([EventType.TICK])
 
 
 class Controller(EventListener):

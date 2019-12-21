@@ -10,6 +10,7 @@ from random import shuffle
 
 NONE_SELECTED = -1
 
+
 class DeckManager(EventListener):
 
     def __init__(self, deck: List[Card], hand_size: int = 5) -> None:
@@ -31,7 +32,7 @@ class DeckManager(EventListener):
                 self.selected_index = new_selected_index
             else:
                 self.selected_index = NONE_SELECTED
-            print('4: {}'.format(self.selected_index))
+            print('2: {}'.format(self.selected_index))
 
     def find_selected_index(self, x: int, y: int) -> int:
         for i in range(self.hand_size):
@@ -46,7 +47,21 @@ class DeckManager(EventListener):
         self.hand = self.draw_pile[:self.hand_size]
         self.draw_pile = self.draw_pile[self.hand_size:]
         self.discard = []
-        self.card_rects = [card_rect(i, self.hand_size) for i in range(self.hand_size)]
+        self.update_rects()
+
+    def update_rects(self) -> None:
+        hand_size = len(self.hand)
+        self.card_rects = [card_rect(i, hand_size) for i in range(hand_size)]
 
     def is_selected(self, index: int) -> bool:
+        print('3: {}'.format(self.selected_index))
         return index == self.selected_index
+
+    def selected_card(self) -> Card:
+        if self.selected_index != NONE_SELECTED:
+            card = self.hand.pop(self.selected_index)
+            self.selected_index = NONE_SELECTED
+            self.update_rects()
+            return card
+        else:
+            return None
