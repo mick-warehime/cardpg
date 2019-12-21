@@ -1,20 +1,25 @@
-2019-12-10 22:27:59,527 0.001 [INFO]  Start Application
-2019-12-10 22:27:59,766 0.001 [DEBUG]  registered listener 1 <controllers.game.Game object at 0x7f8da5de59d0>
-2019-12-10 22:27:59,766 0.001 [DEBUG]  registered listener 2 <controllers.keyboard.Keyboard object at 0x7f8da5de5990>
-2019-12-10 22:27:59,766 0.001 [DEBUG]  registered listener 3 <cards.deck_manager.DeckManager object at 0x7f8da5de5b90>
-2019-12-10 22:27:59,877 0.001 [DEBUG]  registered listener 4 <controllers.combat_controller.CombatController object at 0x7f8da5df3450>
-2019-12-10 22:28:00,347 0.001 [DEBUG]  EVENT: pressed=True, pos:(585, 705)
-2019-12-10 22:28:00,413 0.001 [DEBUG]  EVENT: pressed=False, pos:(585, 705)
-2019-12-10 22:28:00,744 0.001 [DEBUG]  EVENT: pressed=True, pos:(585, 705)
-2019-12-10 22:28:00,843 0.001 [DEBUG]  EVENT: pressed=False, pos:(585, 705)
-2019-12-10 22:28:01,372 0.001 [DEBUG]  EVENT: pressed=True, pos:(660, 495)
-2019-12-10 22:28:01,438 0.001 [DEBUG]  EVENT: pressed=False, pos:(660, 495)
-2019-12-10 22:28:01,736 0.001 [DEBUG]  EVENT: pressed=True, pos:(584, 717)
-2019-12-10 22:28:01,802 0.001 [DEBUG]  EVENT: pressed=False, pos:(584, 709)
-2019-12-10 22:28:01,967 0.001 [DEBUG]  EVENT: pressed=True, pos:(655, 442)
-2019-12-10 22:28:02,066 0.001 [DEBUG]  EVENT: pressed=False, pos:(655, 446)
-2019-12-10 22:28:02,429 0.001 [DEBUG]  EVENT: pressed=True, pos:(628, 701)
-2019-12-10 22:28:02,495 0.001 [DEBUG]  EVENT: pressed=False, pos:(628, 701)
-2019-12-10 22:28:02,660 0.001 [DEBUG]  EVENT: pressed=True, pos:(674, 528)
-2019-12-10 22:28:02,759 0.001 [DEBUG]  EVENT: pressed=False, pos:(676, 527)
-2019-12-10 22:28:03,653 0.001 [DEBUG]  EVENT: <events.quit_event.QuitEvent object at 0x7f8da5df3350>
+2019-12-21 09:35:12,671 0.001 [INFO]  Start Application
+2019-12-21 09:35:12,730 0.001 [DEBUG]  registered listener 1 <controllers.game.Game object at 0x7f853c469bd0>
+2019-12-21 09:35:12,730 0.001 [DEBUG]  registered listener 2 <controllers.keyboard.Keyboard object at 0x7f853c469b90>
+2019-12-21 09:35:12,731 0.001 [DEBUG]  registered listener 3 <cards.deck_manager.DeckManager object at 0x7f853c469d90>
+2019-12-21 09:35:12,844 0.001 [DEBUG]  registered listener 4 <controllers.combat_controller.CombatController object at 0x7f853c478650>
+2019-12-21 09:35:13,385 0.001 [DEBUG]  EVENT: pressed=True, pos:(586, 725)
+2019-12-21 09:35:13,716 0.001 [DEBUG]  EVENT: pressed=True, pos:(586, 725)
+2019-12-21 09:35:14,376 0.001 [DEBUG]  EVENT: pressed=True, pos:(762, 736)
+2019-12-21 09:35:14,640 0.001 [DEBUG]  EVENT: pressed=True, pos:(762, 736)
+2019-12-21 09:35:15,268 0.001 [DEBUG]  EVENT: pressed=True, pos:(926, 732)
+2019-12-21 09:35:15,532 0.001 [DEBUG]  EVENT: pressed=True, pos:(929, 730)
+2019-12-21 09:35:15,896 0.001 [DEBUG]  EVENT: pressed=True, pos:(842, 725)
+2019-12-21 09:35:16,491 0.001 [DEBUG]  EVENT: pressed=True, pos:(512, 714)
+2019-12-21 09:35:17,020 0.001 [DEBUG]  EVENT: pressed=True, pos:(957, 755)
+2019-12-21 09:35:17,383 0.001 [DEBUG]  EVENT: pressed=True, pos:(883, 745)
+2019-12-21 09:35:17,779 0.001 [DEBUG]  EVENT: pressed=True, pos:(653, 741)
+2019-12-21 09:35:18,110 0.001 [DEBUG]  EVENT: pressed=True, pos:(762, 742)
+2019-12-21 09:35:18,441 0.001 [DEBUG]  EVENT: pressed=True, pos:(987, 753)
+2019-12-21 09:35:18,672 0.001 [DEBUG]  EVENT: pressed=True, pos:(1004, 750)
+2019-12-21 09:35:18,805 0.001 [DEBUG]  EVENT: pressed=True, pos:(1004, 750)
+2019-12-21 09:35:19,235 0.001 [DEBUG]  EVENT: pressed=True, pos:(876, 742)
+2019-12-21 09:35:19,368 0.001 [DEBUG]  EVENT: pressed=True, pos:(876, 742)
+2019-12-21 09:35:19,799 0.001 [DEBUG]  EVENT: pressed=True, pos:(546, 703)
+2019-12-21 09:35:19,931 0.001 [DEBUG]  EVENT: pressed=True, pos:(546, 703)
+2019-12-21 09:35:21,058 0.001 [DEBUG]  EVENT: <events.quit_event.QuitEvent object at 0x7f853c478850>
