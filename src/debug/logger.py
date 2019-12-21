@@ -28,9 +28,9 @@ def initialize_logging() -> None:
     logger = logging.getLogger()
     logger.setLevel(LOG_LEVEL)
 
-    file_logger = logging.FileHandler(log_file)
-    file_logger.setFormatter(formatter)
-    logger.addHandler(file_logger)
+    # file_logger = logging.FileHandler(log_file)
+    # file_logger.setFormatter(formatter)
+    # logger.addHandler(file_logger)
 
     console_logger = logging.StreamHandler()
     console_logger.setFormatter(formatter)

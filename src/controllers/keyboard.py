@@ -5,6 +5,7 @@ from events.event_listener import EventListener
 from events.event_manager import EventManager
 from events.key_press_event import KeyPressEvent
 from events.mouse_click_event import MouseClickEvent
+from events.mouse_move_event import MouseMoveEvent
 from events.quit_event import QuitEvent
 from events.tick_event import TickEvent
 
@@ -30,16 +31,26 @@ class Keyboard(EventListener):
             #     self.handle_keypress(pg_event.unicode, pressed=False)
             elif pg_event.type == pygame.MOUSEBUTTONDOWN:
                 self.handle_mouse_click(pressed=True)
-            elif pg_event.type == pygame.MOUSEBUTTONUP:
-                self.handle_mouse_click(pressed=False)
+            # Not needed so far.
+            # elif pg_event.type == pygame.MOUSEBUTTONUP:
+            #     self.handle_mouse_click(pressed=False)
+            # This makes things slow
+            # elif pg_event.type == pygame.MOUSEMOTION:
+            #     self.handle_mouse_motion()
 
     def handle_keypress(self, key_name: str, pressed: bool) -> None:
         input_event = KeyPressEvent(key=key_name, pressed=pressed)
         EventManager.post(input_event)
 
     def handle_mouse_click(self, pressed: bool) -> None:
-        mouse_event = MouseClickEvent(position=pygame.mouse.get_pos(), pressed=pressed)
+        x, y = pygame.mouse.get_pos()
+        mouse_event = MouseClickEvent(x=x, y=y, pressed=pressed)
         EventManager.post(mouse_event)
+
+    def handle_mouse_motion(self) -> None:
+        x, y = pygame.mouse.get_pos()
+        mouse_move_event = MouseMoveEvent(x, y)
+        EventManager.post(mouse_move_event)
 
     def get_binding(self, key: str) -> Event:
         return self.bindings.event_for_key(key)

@@ -1,14 +1,13 @@
-from typing import Tuple
-
 from events.event import Event
 from events.event_type import EventType
 
 
 class MouseClickEvent(Event):
-    def __init__(self, pressed: bool, position: Tuple[int, int]) -> None:
+    def __init__(self, pressed: bool, x: int, y: int) -> None:
         Event.__init__(self, EventType.MOUSE_CLICK)
         self.pressed = pressed
-        self.position = position
+        self.x = x
+        self.y = y
 
     def __str__(self) -> str:
-        return 'pressed=%s, pos:%s' % (self.pressed, self.position)
+        return 'pressed=%s, pos:(%s, %s)' % (self.pressed, self.x, self.y)

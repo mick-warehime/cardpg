@@ -45,6 +45,5 @@ class Game(EventListener):
             self.controller = build_controller(event.next_screen)
 
     def run(self) -> None:
-        EventManager.post(TickEvent())
         while True:
             EventManager.post(TickEvent())

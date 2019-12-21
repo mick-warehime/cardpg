@@ -1,14 +1,17 @@
 from typing import List
 
 from cards.card import Card
+from items.item_names import ItemNames
 from items.item_rarity import ItemRarity
 from items.item_type import ItemType
 
 
 class Item(object):
 
-    def __init__(self, name: str, item_type: ItemType, rarity: ItemRarity) -> None:
-        self.name = name
+    def __init__(self, item_name: ItemNames, item_type: ItemType, rarity: ItemRarity) -> None:
+
+        self.item_name = item_name
+        self.name = item_name.value
         self.item_type = item_type
         self.rarity = rarity
 
