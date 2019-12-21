@@ -35,7 +35,7 @@ class DeckManager(EventListener):
             print('2: {}'.format(self.selected_index))
 
     def find_selected_index(self, x: int, y: int) -> int:
-        for i in range(self.hand_size):
+        for i in range(len(self.hand)):
             rect = self.card_rects[i]
             if rect.collidepoint(x, y):
                 return i

@@ -7,7 +7,7 @@ from events.event_priority import EventPriority
 
 class EventListener(metaclass=abc.ABCMeta):
 
-    def __init__(self, priority=EventPriority.LAST) -> None:
+    def __init__(self, priority=EventPriority.FIRST) -> None:
         self._priority = priority
         EventManager.register(self)
 

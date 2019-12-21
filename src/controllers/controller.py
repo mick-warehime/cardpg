@@ -3,6 +3,7 @@ import abc
 from events.event import Event
 from events.event_type import EventType
 from events.event_listener import EventListener
+from events.event_priority import EventPriority
 from models.model import Model
 from views.view import View
 
@@ -12,7 +13,7 @@ IGNORED_EVENTS = set([EventType.TICK])
 class Controller(EventListener):
 
     def __init__(self, model: Model, view: View) -> None:
-        super().__init__()
+        super().__init__(priority=EventPriority.LAST)
         self._model = model
         self._view = view
         self.initial_draw = False
