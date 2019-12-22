@@ -8,8 +8,8 @@ from pygame.surface import Surface
 
 from data import constants
 from data.colors import ColorType
-from spritesheet import load_sprite_at
 from views.pygame_images import load_image
+from views.spritesheet import load_character_at, load_enemy_at, load_sprite_at
 
 
 class Screen(object):
@@ -98,7 +98,14 @@ class Screen(object):
                       x: int,
                       y: int,
                       scale: Tuple[int, int]) -> None:
-        """"Render from the spriteshite"""
+        """"Render from the items spriteshite"""
+
+    @abstractmethod
+    def render_enemy(self, sprite: Tuple[int, int],
+                     x: int,
+                     y: int,
+                     scale: Tuple[int, int]) -> None:
+        """"Render from the enemies spriteshite"""
 
 
 class _PygameScreen(Screen):
@@ -250,8 +257,27 @@ class _PygameScreen(Screen):
                       scale: Tuple[int, int] = None) -> None:
 
         sprite = load_sprite(sprite)
+        self.render_surface(sprite, x, y, scale)
+
+    def render_enemy(self, sprite: Tuple[int, int],
+                     x: int,
+                     y: int,
+                     scale: Tuple[int, int] = None) -> None:
+
+        enemy = load_enemy(sprite)
+        self.render_surface(enemy, x, y, scale)
+
+    def render_character(self, sprite: Tuple[int, int],
+                         x: int,
+                         y: int,
+                         scale: Tuple[int, int] = None) -> None:
+
+        char = load_character(sprite)
+        self.render_surface(char, x, y, scale)
+
+    def render_surface(self, surface: Surface, x: int, y: int, scale: Tuple[int, int]) -> None:
         if scale:
-            sprite = pygame.transform.scale(sprite, scale)
+            sprite = pygame.transform.scale(surface, scale)
         self._screen.blit(sprite, (x, y))
 
 
@@ -261,6 +287,18 @@ SPRITE_CACHE = {}
 def load_sprite(sprite: Tuple[int, int]) -> Surface:
     if sprite not in SPRITE_CACHE:
         SPRITE_CACHE[sprite] = load_sprite_at(sprite)
+    return SPRITE_CACHE[sprite]
+
+
+def load_enemy(sprite: Tuple[int, int]) -> Surface:
+    if sprite not in SPRITE_CACHE:
+        SPRITE_CACHE[sprite] = load_enemy_at(sprite)
+    return SPRITE_CACHE[sprite]
+
+
+def load_character(sprite: Tuple[int, int]) -> Surface:
+    if sprite not in SPRITE_CACHE:
+        SPRITE_CACHE[sprite] = load_character_at(sprite)
     return SPRITE_CACHE[sprite]
 
 

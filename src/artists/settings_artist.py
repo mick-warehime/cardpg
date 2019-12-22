@@ -1,6 +1,6 @@
 from artists.artist import Artist
-from artists.drawing_utils import rescale_horizontal, rescale_vertical
 from data.colors import WHITE
+from data.constants import SCREEN_SIZE
 from models.model import Model
 from views.pygame_screen import Screen
 
@@ -8,10 +8,8 @@ from views.pygame_screen import Screen
 class SettingsArtist(Artist):
 
     def render(self, screen: Screen, model: Model) -> None:
-        x, font_size, spacing = rescale_horizontal(250, 35, 50)
-        y, = rescale_vertical(250)
-        screen.render_text('Settings! (press y)',
-                           font_size=font_size,
-                           x=x,
-                           y=y,
+        screen.render_text('Combat: y',
+                           font_size=40,
+                           x=SCREEN_SIZE[0] - 200,
+                           y=0,
                            color=WHITE)

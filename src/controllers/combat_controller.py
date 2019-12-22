@@ -30,6 +30,6 @@ class CombatController(Controller):
         card = self._model.selected_card()
         if card:
             logging.info('cn: {}, sk: {}'.format(char.hp, skel.hp))
-            skel.cards()[0].play(skel, char)
             card.play(char, skel)
+            skel.cards()[0].play(skel, char)
             logging.info('cn: {}, sk: {}'.format(char.hp, skel.hp))

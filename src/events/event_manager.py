@@ -13,7 +13,6 @@ class EventManager(object):
     @classmethod
     def register(cls, l: 'EventListener') -> None:
         cls.listeners.add(l)
-        print([type(c) for c in sorted(cls.listeners, key=lambda x: x.priority).copy()])
         logging.debug('registered listener {0} {1}'.format(
             len(cls.listeners), l))
 
