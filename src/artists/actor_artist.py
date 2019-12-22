@@ -18,8 +18,10 @@ class ActorArtist(Artist):
     def render(self, screen: Screen, model: CombatModel) -> None:
         enemy_life_str = '{}/{}'.format(model.skeleton.hp, model.skeleton.max_hp)
         screen.render_text(enemy_life_str, 30, ActorArtist.ENEMY_X, ActorArtist.ENEMY_Y-20, WHITE)
-        screen.render_enemy(model.skeleton.sprite, ActorArtist.ENEMY_X, ActorArtist.ENEMY_Y, ActorArtist.ENEMY_SIZE)
+        screen.render_enemy(model.skeleton.sprite, ActorArtist.ENEMY_X,
+                            ActorArtist.ENEMY_Y, ActorArtist.ENEMY_SIZE)
 
         char_life_str = '{}/{}'.format(model.character.hp, model.character.max_hp)
         screen.render_text(char_life_str, 30, ActorArtist.CHAR_X, ActorArtist.CHAR_X - 20, WHITE)
-        screen.render_character(model.character.sprite, ActorArtist.CHAR_X, ActorArtist.CHAR_Y, ActorArtist.CHARACTER_SIZE)
+        screen.render_character(model.character.sprite, ActorArtist.CHAR_X,
+                                ActorArtist.CHAR_Y, ActorArtist.CHARACTER_SIZE)
