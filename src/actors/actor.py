@@ -1,17 +1,22 @@
 import abc
-from typing import List
+from typing import List, Tuple
 
 from actors.actor_type import ActorType
 
 
 class Actor(object):
 
-    def __init__(self, name: str, max_hp: int, actor_type: ActorType) -> None:
+    def __init__(self,
+                 name: str,
+                 max_hp: int,
+                 actor_type: ActorType,
+                 sprite: Tuple[int, int]) -> None:
         self._name = name
         self._actor_type = actor_type
         self._hp = max_hp
         self._max_hp = max_hp
         self._items: List['Item'] = []
+        self._sprite = sprite
 
     @property
     def name(self) -> str:
@@ -45,5 +50,12 @@ class Actor(object):
     @abc.abstractmethod
     def new(self) -> 'Actor':
         pass
+
+    def __str__(self) -> str:
+        return self.name
+
+    @property
+    def sprite(self) -> Tuple[int, int]:
+        return self._sprite
 
     # Add Skill (effectively upgrades) cards may require skills or benefit from extra skills

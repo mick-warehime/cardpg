@@ -27,13 +27,11 @@ class DeckManager(EventListener):
 
     def notify(self, event: Event) -> None:
         if event.event_type == EventType.MOUSE_CLICK:
-            print('1: {}'.format(self.selected_index))
             new_selected_index = self.find_selected_index(event.x, event.y)
             if self.selected_index != new_selected_index:
                 self.selected_index = new_selected_index
             else:
                 self.selected_index = NONE_SELECTED
-            print('2: {}'.format(self.selected_index))
 
     def find_selected_index(self, x: int, y: int) -> int:
         for i in range(len(self.hand)):
@@ -55,7 +53,6 @@ class DeckManager(EventListener):
         self.card_rects = [card_rect(i, hand_size) for i in range(hand_size)]
 
     def is_selected(self, index: int) -> bool:
-        print('3: {}'.format(self.selected_index))
         return index == self.selected_index
 
     def selected_card(self) -> Card:
