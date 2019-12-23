@@ -24,6 +24,7 @@ class CardArtist(Artist):
     def render(self, screen: Screen, model: CombatModel) -> None:
         self.render_cards(screen, model.deck_manager.hand, model)
         self.render_discard_pile(screen, model)
+        self.render_draw_pile(screen, model)
 
     @staticmethod
     def render_cards(screen: Screen, cards: List[Card], model: CombatModel) -> None:
@@ -47,10 +48,20 @@ class CardArtist(Artist):
     @staticmethod
     def render_discard_pile(screen: Screen, model: CombatModel) -> None:
         n_discard = len(model.deck_manager.discard)
-        discard_x = SCREEN_SIZE[0] - 400
-        discard_y = SCREEN_SIZE[1] - 600
+        discard_x = SCREEN_SIZE[0] - CARD_WIDTH - 50
+        discard_y = SCREEN_SIZE[1] - CARD_HEIGHT - 250
         for i in range(n_discard):
             rect = Rect(discard_x + i * 5, discard_y + i * 5, CARD_WIDTH, CARD_HEIGHT)
+            screen.render_rect(rect, WHITE, width=0)
+            screen.render_rect(rect, DARK_GRAY, width=2)
+
+    @staticmethod
+    def render_draw_pile(screen: Screen, model: CombatModel) -> None:
+        n_draw = len(model.deck_manager.draw_pile)
+        draw_x = 10
+        draw_y = SCREEN_SIZE[1] - CARD_HEIGHT - 250
+        for i in range(n_draw):
+            rect = Rect(draw_x + i * 5, draw_y + i * 5, CARD_WIDTH, CARD_HEIGHT)
             screen.render_rect(rect, WHITE, width=0)
             screen.render_rect(rect, DARK_GRAY, width=2)
 
