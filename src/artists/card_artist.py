@@ -50,7 +50,6 @@ class CardArtist(Artist):
         discard_x = SCREEN_SIZE[0] - 400
         discard_y = SCREEN_SIZE[1] - 600
         for i in range(n_discard):
-            print('here')
             rect = Rect(discard_x + i * 5, discard_y + i * 5, CARD_WIDTH, CARD_HEIGHT)
             screen.render_rect(rect, WHITE, width=0)
             screen.render_rect(rect, DARK_GRAY, width=2)
