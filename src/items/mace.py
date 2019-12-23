@@ -12,7 +12,7 @@ class Mace(Item):
     N_DICE = 1
     N_SIDES = 6
     MOD = 1
-    N_CARDS = 2
+    N_CARDS = 8
     SPRITE = (9, 5)
 
     def __init__(self) -> None:

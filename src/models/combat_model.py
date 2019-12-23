@@ -19,5 +19,5 @@ class CombatModel(Model):
         self.skeleton = Skeleton.new()
         self.skeleton.add_item(Club())
 
-    def selected_card(self) -> Card:
-        return self.deck_manager.selected_card()
+    def play_selected_card(self) -> Card:
+        return self.deck_manager.play_selected_card()

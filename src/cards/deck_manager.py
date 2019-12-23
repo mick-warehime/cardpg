@@ -46,20 +46,23 @@ class DeckManager(EventListener):
         self.hand = self.draw_pile[:self.hand_size]
         self.draw_pile = self.draw_pile[self.hand_size:]
         self.discard = []
-        self.update_rects()
+        self.update_hand()
 
-    def update_rects(self) -> None:
+    def update_hand(self) -> None:
         hand_size = len(self.hand)
         self.card_rects = [card_rect(i, hand_size) for i in range(hand_size)]
+        if hand_size < 1:
+            self.shuffle()
 
     def is_selected(self, index: int) -> bool:
         return index == self.selected_index
 
-    def selected_card(self) -> Card:
+    def play_selected_card(self) -> Card:
         if self.selected_index != NONE_SELECTED:
             card = self.hand.pop(self.selected_index)
+            self.discard.append(card)
             self.selected_index = NONE_SELECTED
-            self.update_rects()
+            self.update_hand()
             return card
         else:
             return None

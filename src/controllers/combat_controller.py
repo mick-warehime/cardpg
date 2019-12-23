@@ -27,7 +27,7 @@ class CombatController(Controller):
         char = self._model.character
         skel = self._model.skeleton
 
-        card = self._model.selected_card()
+        card = self._model.play_selected_card()
         if card:
             logging.info('cn: {}, sk: {}'.format(char.hp, skel.hp))
             card.play(char, skel)
