@@ -58,6 +58,7 @@ class DeckManager(EventListener):
     def selected_card(self) -> Card:
         if self.selected_index != NONE_SELECTED:
             card = self.hand.pop(self.selected_index)
+            self.discard.append(card)
             self.selected_index = NONE_SELECTED
             self.update_rects()
             return card
