@@ -27,5 +27,5 @@ class Controller(EventListener):
             self.initial_draw = True
 
     @abc.abstractmethod
-    def update(self, event: Event) -> None:
+    def update(self) -> None:
         pass

@@ -23,6 +23,9 @@ class CombatController(Controller):
             if event.key == 'a':
                 self.attack()
 
+                if self._model.skeleton.hp <= 0:
+                    EventManager.post(ChangeScreenEvent('loot', actor=self._model.skeleton))
+
     def attack(self) -> None:
         char = self._model.character
         skel = self._model.skeleton

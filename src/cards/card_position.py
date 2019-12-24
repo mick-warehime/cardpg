@@ -3,6 +3,8 @@ from pygame.rect import Rect
 from data.constants import (CARD_FROM_BOTTOM, CARD_HEIGHT, CARD_SPACE,
                             CARD_WIDTH, SCREEN_SIZE)
 
+LOOT_OFFSET = 300
+
 
 def card_position(index: int, hand_size: int):
     y = SCREEN_SIZE[1] - CARD_FROM_BOTTOM - CARD_HEIGHT
@@ -15,4 +17,14 @@ def card_position(index: int, hand_size: int):
 
 def card_rect(index: int, hand_size: int) -> Rect:
     x, y = card_position(index, hand_size)
+    return Rect(x, y, CARD_WIDTH, CARD_HEIGHT)
+
+
+def loot_position(index: int, hand_size: int):
+    x, y = card_position(index, hand_size)
+    return x, y - LOOT_OFFSET
+
+
+def loot_rect(index: int, hand_size: int) -> Rect:
+    x, y = loot_position(index, hand_size)
     return Rect(x, y, CARD_WIDTH, CARD_HEIGHT)
