@@ -7,6 +7,7 @@ import pygame
 from controller_factory import build_controller
 from controllers.keyboard import Keyboard
 from data import constants
+from events.change_screen_event import ChangeScreenEvent
 from events.event import Event
 from events.event_listener import EventListener
 from events.event_manager import EventManager
@@ -32,7 +33,7 @@ class Game(EventListener):
         super().__init__()
         self.clock: pygame.Clock = pygame.time.Clock()
         self.keyboard = Keyboard()
-        self.controller = build_controller('combat')
+        self.controller = build_controller(ChangeScreenEvent('combat'))
 
     def notify(self, event: Event) -> None:
         if event.event_type == EventType.QUIT:
@@ -42,7 +43,7 @@ class Game(EventListener):
             # limits the redraw speed
             self.clock.tick(constants.FRAMES_PER_SECOND)
         elif event.event_type == EventType.CHANGE_SCREEN:
-            self.controller = build_controller(event.next_screen)
+            self.controller = build_controller(event)
 
     def run(self) -> None:
         while True:

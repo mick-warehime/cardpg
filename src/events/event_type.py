@@ -7,5 +7,6 @@ class EventType(Enum):
     MOUSE_CLICK = 3
     MOUSE_MOVE = 4
     PLAY_CARD = 5
-    QUIT = 6
-    TICK = 7
+    ADD_CARD = 6
+    QUIT = 7
+    TICK = 8

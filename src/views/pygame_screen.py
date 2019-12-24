@@ -7,7 +7,8 @@ from pygame.rect import Rect
 from pygame.surface import Surface
 
 from data import constants
-from data.colors import ColorType
+from data.colors import DARK_GRAY, RED, WHITE, ColorType
+from data.constants import CARD_HEIGHT
 from views.pygame_images import load_image
 from views.spritesheet import load_character_at, load_enemy_at, load_sprite_at
 
@@ -107,9 +108,28 @@ class Screen(object):
                      scale: Tuple[int, int]) -> None:
         """"Render from the enemies spriteshite"""
 
+    @abstractmethod
+    def render_actor(self, sprite: Tuple[int, int],
+                     x: int,
+                     y: int,
+                     scale: Tuple[int, int]) -> None:
+        """"Render from the enemies spriteshite"""
+
+    @abstractmethod
+    def render_card(self,
+                    title: str,
+                    text: str,
+                    rect: Rect,
+                    sprite: Surface,
+                    is_selected: bool) -> None:
+        """"Render from the enemies spriteshite"""
+
 
 class _PygameScreen(Screen):
     _screen: pygame.Surface = None
+    TITLE_FONT = 30
+    BODY_FONT = 20
+    SPRITE_SIZE = (140, 140)
 
     def __init__(self) -> None:
         if self._screen is None:
@@ -279,6 +299,21 @@ class _PygameScreen(Screen):
         if scale:
             sprite = pygame.transform.scale(surface, scale)
         self._screen.blit(sprite, (x, y))
+
+    def render_card(self,
+                    title: str,
+                    text: str,
+                    rect: Rect,
+                    sprite: Surface,
+                    is_selected: bool) -> None:
+        self.render_rect(rect, WHITE, 0)
+        self.render_text(title, _PygameScreen.TITLE_FONT, rect.x + 3, rect.y - 3, DARK_GRAY)
+        self.render_text(text, _PygameScreen.BODY_FONT, rect.x + 3, rect.y + 2 * CARD_HEIGHT / 3,
+                         DARK_GRAY)
+        self.render_sprite(sprite, rect.x + 20, rect.y + 20, _PygameScreen.SPRITE_SIZE)
+
+        if is_selected:
+            self.render_rect(rect, RED, 2)
 
 
 SPRITE_CACHE = {}

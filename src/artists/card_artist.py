@@ -5,7 +5,7 @@ from pygame.rect import Rect
 from artists.artist import Artist
 from cards.card import Card
 from cards.card_position import card_position
-from data.colors import DARK_GRAY, RED, WHITE
+from data.colors import DARK_GRAY, WHITE
 from data.constants import CARD_HEIGHT, CARD_WIDTH, SCREEN_SIZE
 from models.combat_model import CombatModel
 from views.pygame_screen import Screen
@@ -13,9 +13,6 @@ from views.pygame_screen import Screen
 
 class CardArtist(Artist):
     MAX_HAND_SIZE = 7
-    TITLE_FONT = 30
-    BODY_FONT = 20
-    SPRITE_SIZE = (140, 140)
 
     def render(self, screen: Screen, model: CombatModel) -> None:
         self.render_cards(screen, model.deck_manager.hand, model)
@@ -29,17 +26,9 @@ class CardArtist(Artist):
             'handsize {} greater than max {}'.format(n_cards, CardArtist.MAX_HAND_SIZE)
         for i in range(n_cards):
             x, y = card_position(i, n_cards)
-
             rect = Rect(x, y, CARD_WIDTH, CARD_HEIGHT)
-
-            screen.render_rect(rect, WHITE, 0)
-            screen.render_text(cards[i].name, CardArtist.TITLE_FONT, x + 3, y - 3, DARK_GRAY)
-            screen.render_text(cards[i].text, CardArtist.BODY_FONT, x + 3, y + 2 * CARD_HEIGHT / 3,
-                               DARK_GRAY)
-            screen.render_sprite(cards[i].sprite, x + 20, y + 20, CardArtist.SPRITE_SIZE)
-
-            if model.deck_manager.is_selected(i):
-                screen.render_rect(model.deck_manager.card_rects[i], RED, 2)
+            screen.render_card(cards[i].name, cards[i].text, rect,
+                               cards[i].sprite, model.deck_manager.is_selected(i))
 
     @staticmethod
     def render_discard_pile(screen: Screen, model: CombatModel) -> None:
